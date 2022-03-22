@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="072a9c3b-b378-4b7d-bb01-e7b9c9ad2470" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hs_err_pid76460.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/replay_pid76460.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/SpringBootPrjApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/config/RedisConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/MelonController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/MongoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/controller/NoticeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/MelonDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/MongoDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/dto/NoticeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mapper/INoticeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mongodb/AbstractMongoDBComon.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mongodb/IMelonMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mongodb/IMongoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mongodb/impl/MelonMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/mongodb/impl/MongoMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/redis/IMelonCacheMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/persistance/redis/impl/MelonCacheMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IMelonCacheService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IMelonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/IMongoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/INoticeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/MelonCacheService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/MelonService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/MongoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/service/impl/NoticeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/util/CmmUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kopo/poly/util/DateUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/MsgToList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/NoticeEditInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/NoticeInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/NoticeList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/notice/NoticeReg.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/kopo/poly/SpringBootPrjApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="26iX2Ojaf62tH8CtseKaGT4Wvkk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SpringBootPRJ-master" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="072a9c3b-b378-4b7d-bb01-e7b9c9ad2470" name="Default Changelist" comment="" />
+      <created>1647907173719</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647907173719</updated>
+      <workItem from="1647907176743" duration="11000" />
+      <workItem from="1647907202038" duration="133000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
