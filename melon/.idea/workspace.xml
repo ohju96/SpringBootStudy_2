@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/SpringBootPrjApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/controller/NoticeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/dto/NoticeDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/persistance/mapper/INoticeMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/service/INoticeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/service/impl/NoticeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/util/CmmUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/MsgToList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeEditInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeInfo.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeList.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeReg.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/test/java/kopo/poly/SpringBootPrjApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="26oKAzidzUdLYC3FdrJQ31xZrlk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/melon/build.gradle" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="" />
+      <created>1648084360833</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648084360833</updated>
+      <workItem from="1648084363168" duration="9000" />
+    </task>
+    <servers />
+  </component>
+</project>
