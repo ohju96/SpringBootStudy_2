@@ -1,4 +1,4 @@
-package Project.melon.persistance.mongodb.impl;
+package Project.melon.persistance.mongodb;
 
 import Project.melon.dto.MongoDTO;
 

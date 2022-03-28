@@ -1,9 +1,11 @@
-package Project.melon.persistance.mongodb;
+package Project.melon.persistance.mongodb.impl;
 
 import Project.melon.dto.MelonDTO;
-import Project.melon.persistance.mongodb.impl.IMelonMapper;
+import Project.melon.persistance.mongodb.AbstractMongoDBComon;
+import Project.melon.persistance.mongodb.IMelonMapper;
 import Project.melon.utill.CmmUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.AggregateIterable;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import lombok.extern.slf4j.Slf4j;
@@ -11,10 +13,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Component("MelonMapper")
@@ -32,7 +31,7 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
         }
 
         //데이터를 저장할 컬렉션 생성
-        super.createCollection(colNm, "collectTime");
+        super.createCollection(colNm,"collectTime");
 
         // 저장할 컬렉션 객체 생성
         MongoCollection<Document> col = mongodb.getCollection(colNm);
@@ -103,34 +102,56 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
     @Override
     public List<Map<String, Object>> getSingerSongCnt(String colNm) throws Exception {
 
-        log.info(this.getClass().getName() + ".getSingerSongCnt Start !!");
+        log.info(this.getClass().getName() + ".getSingerSongCnt Start!");
 
         // 조회 결과를 전달하기 위한 객체 생성하기
-        LinkedList<Map<String, Object>> rList = new LinkedList<>();
+        List<Map<String, Object>> rList = new LinkedList<Map<String, Object>>();
 
-        //MongoDB 조회 쿼리
+        // MongoDB 조회 쿼리
         List<? extends Bson> pipeline = Arrays.asList(
+                new Document().append("$group",
+                        new Document().append("_id", new Document().append("singer", "$singer")).append("COUNT(singer)",
+                                new Document().append("$sum", 1))),
                 new Document()
-                        .append("$group", new Document()
-                                .append("_id", new Document()
-                                        .append("singer", "$singer")
-                                )
-                                .append("singerCnt", new Document()
-                                        .append("$sum", 1)
-                                )
-                        ),
-                new Document()
-                        .append("$project", new Document()
-                                .append("singer", "$_id.singer")
-                                .append("singerCnt", "$COUNT(singer)")
-                                .append("_id", 0)
-                        ),
-                new Document()
-                        .append("$sort", new Document()
-                                .append("singerCnt", 1)
-                        )
-        );
+                        .append("$project",
+                                new Document().append("singer", "$_id.singer").append("singerCnt", "$COUNT(singer)")
+                                        .append("_id", 0)),
+                new Document().append("$sort", new Document().append("singerCnt", 1)));
 
-        return null;
+        MongoCollection<Document> col = mongodb.getCollection(colNm);
+        AggregateIterable<Document> rs = col.aggregate(pipeline).allowDiskUse(true);
+
+        for (Document doc : rs) {
+
+            if (doc == null) {
+                doc = new Document();
+            }
+
+            String singer = doc.getString("singer");
+            int singerCnt = doc.getInteger("singerCnt", 0);
+
+            log.info("singer : " + singer);
+            log.info("singerCnt : " + singerCnt);
+
+            Map<String, Object> rMap = new LinkedHashMap<String, Object>();
+
+            rMap.put("singer", singer);
+            rMap.put("singerCnt", singerCnt);
+
+            rList.add(rMap);
+
+            rMap = null;
+            doc = null;
+        }
+
+        Iterator<Document> cursor = null;
+        rs = null;
+        col = null;
+        pipeline = null;
+
+        log.info(this.getClass().getName() + ".getSingerSongCnt End!");
+
+        return rList;
     }
+
 }

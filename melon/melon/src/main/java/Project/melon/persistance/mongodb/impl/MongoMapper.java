@@ -1,7 +1,8 @@
-package Project.melon.persistance.mongodb;
+package Project.melon.persistance.mongodb.impl;
 
 import Project.melon.dto.MongoDTO;
-import Project.melon.persistance.mongodb.impl.IMongoMapper;
+import Project.melon.persistance.mongodb.AbstractMongoDBComon;
+import Project.melon.persistance.mongodb.IMongoMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoCollection;
 import lombok.extern.slf4j.Slf4j;
