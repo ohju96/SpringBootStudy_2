@@ -68,6 +68,8 @@ public class MelonService implements IMelonService {
 
                 // MongoDB에 데이터저장하기
                 res = melonMapper.insertSong(pList, colNm);
+                log.info("pList ={}", pList);
+                log.info("res ={}", res);
 
                 log.info(this.getClass().getName() + ".collectMelonSong End !");
 
@@ -82,11 +84,40 @@ public class MelonService implements IMelonService {
 
     @Override
     public List<MelonDTO> getSongList() throws Exception {
-        return null;
+
+        log.info(this.getClass().getName() + ".getSongList Start !!");
+
+        // MongoDB에 저장된 컬렉션 이름
+        String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
+
+        List<MelonDTO> rList = new LinkedList<>();
+
+        rList = melonMapper.getSongList(colNm);
+
+        if (rList == null) {
+            rList = new LinkedList<>();
+        }
+
+        log.info(this.getClass().getName() + ".getSongList End !!");
+
+        return rList;
     }
 
     @Override
     public List<Map<String, Object>> getSingerSongCnt() throws Exception {
-        return null;
+
+        log.info(this.getClass().getName() + ".getSingerSongCnt Start !!");
+
+        String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
+
+        List<Map<String, Object>> rList = melonMapper.getSingerSongCnt(colNm);
+
+        if (rList == null) {
+            rList = new LinkedList<>();
+        }
+
+        log.info(this.getClass().getName() + ".getSingerSongCnt End !!");
+
+        return rList;
     }
 }
