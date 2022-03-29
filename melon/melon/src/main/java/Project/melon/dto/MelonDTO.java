@@ -10,4 +10,7 @@ public class MelonDTO {
     String collectTime; // 수집 시간
     String song; // 노래 제목
     String singer; // 가수
+    int singerCnt;
+
+
 }
