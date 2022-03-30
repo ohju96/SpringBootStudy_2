@@ -50,4 +50,12 @@ public interface IMelonMapper {
      */
     int insertSongMany(List<MelonDTO> pList, String colNm) throws Exception;
 
+    /**
+     * 가수의 노래 삭제하기
+     * @param colNm
+     * @param singer
+     * @return
+     * @throws Exception
+     */
+    int deleteSong (String colNm, String singer) throws Exception;
 }

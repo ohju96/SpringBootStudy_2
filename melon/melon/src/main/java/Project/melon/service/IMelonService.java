@@ -34,4 +34,11 @@ public interface IMelonService {
      */
     int collectMelonSongMany() throws Exception;
 
+    /**
+     * 가수의 노래 삭제하기
+     * @return
+     * @throws Exception
+     */
+    int deleteSong() throws Exception;
+
 }
