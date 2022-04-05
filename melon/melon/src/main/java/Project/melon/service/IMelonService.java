@@ -47,4 +47,20 @@ public interface IMelonService {
      * @throws Exception
      */
     int updateBTSName() throws Exception;
+
+    /**
+     * BTS 노래마다 nickname 필드를 추가하고,
+     * 그 필드에 BTS 저장하기
+     * @return
+     * @throws Exception
+     */
+    int updateAddBTSNickname() throws Exception;
+
+    /**
+     * BTS 노래에 member 필드를 추가하고,
+     * 그 member 필드에 BTS 멤버 이름을 List로 저장한다.
+     * @return
+     * @throws Exception
+     */
+    int updateAddBTSMember() throws Exception;
 }

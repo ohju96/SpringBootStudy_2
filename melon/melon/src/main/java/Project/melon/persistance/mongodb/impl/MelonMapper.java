@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+import static com.mongodb.client.model.Updates.set;
+
 @Slf4j
 @Component("MelonMapper")
 public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
@@ -311,6 +313,59 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
         res = 1;
 
         log.info(this.getClass().getName() + ".updateSong End !");
+
+        return res;
+    }
+
+    @Override
+    public int updateSongAddField(String pColNm, String pSinger, String pNickname) throws Exception {
+
+        log.info(this.getClass().getName() + ".updateSongAddField Start !");
+
+        int res = 0;
+
+        MongoCollection<Document> col = mongodb.getCollection(pColNm);
+
+        log.info("pColNm ={}", pColNm);
+        log.info("pSinger ={}", pSinger);
+
+        // 조회할 조건(SQL의 WHERE 역할 / SELECT * FROM MELON_20220321 where singer = '방탄소년단')
+        Document query = new Document();
+        query.append("singer", pSinger);
+
+        FindIterable<Document> rs = col.find(query);
+
+        rs.forEach(doc -> col.updateOne(doc, set("nickname", pNickname)));
+
+        res = 1;
+
+        log.info(this.getClass().getName() + ".updateSongAddfField");
+
+        return res;
+    }
+
+    @Override
+    public int updateSongAddListField(String pColNm, String pSinger, List<String> pMember) throws Exception {
+
+        log.info(this.getClass().getName() + ".updateSongAddListField Start");
+
+        int res = 0;
+
+        MongoCollection<Document> col = mongodb.getCollection(pColNm);
+
+        log.info("pColNm ={}", pColNm);
+        log.info("pSinger ={}", pSinger);
+
+        Document query = new Document();
+        query.append("singer", pSinger);
+
+        FindIterable<Document> rs = col.find(query);
+
+        rs.forEach(doc -> col.updateOne(doc, set("member", pMember)));
+
+        res = 1;
+
+        log.info(this.getClass().getName() + ".updateSongAddField End");
 
         return res;
     }

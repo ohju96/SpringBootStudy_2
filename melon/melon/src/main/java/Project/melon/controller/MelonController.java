@@ -133,4 +133,40 @@ public class MelonController {
         return msg;
     }
 
+    @GetMapping("melon/btsAddNickname")
+    public String btsAddField() throws Exception {
+
+        log.info(this.getClass().getName() + ".btsAddNickname Start !");
+
+        String msg;
+
+        int res = melonService.updateAddBTSNickname();
+
+        if (res == 1) {
+            msg = "성공";
+        } else {
+            msg = "fail";
+        }
+        log.info(this.getClass().getName() + ".btsAddNickname End !");
+
+        return msg;
+    }
+
+    @GetMapping("melon/btsAddMember")
+    public String btsAddMember() throws Exception {
+        log.info(this.getClass().getName() + ".btsAddMember Start !");
+
+        String msg;
+
+        int res = melonService.updateAddBTSMember();
+
+        if (res == 1) {
+            msg = "성공";
+        } else {
+            msg = "실패";
+        }
+        log.info(this.getClass().getName() + ".btsAddMember End!");
+
+        return msg;
+    }
 }
