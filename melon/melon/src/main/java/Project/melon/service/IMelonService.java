@@ -41,4 +41,10 @@ public interface IMelonService {
      */
     int deleteSong() throws Exception;
 
+    /**
+     * singer 필드의 값이 방탄소년단을 BTS로 변경하기
+     * @return
+     * @throws Exception
+     */
+    int updateBTSName() throws Exception;
 }

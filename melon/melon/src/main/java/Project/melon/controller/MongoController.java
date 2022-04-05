@@ -14,7 +14,8 @@ public class MongoController {
     @Resource(name = "MongoService")
     private IMongoService mongoService;
 
-    @GetMapping String test() throws Exception {
+    @GetMapping("mongo/test")
+    public String test() throws Exception {
 
         mongoService.mongoTest();
 

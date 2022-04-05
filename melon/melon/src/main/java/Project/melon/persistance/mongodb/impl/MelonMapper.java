@@ -238,6 +238,8 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
         // 레코드 리스트 단위로 한번에 저장하기
         col.insertMany(list);
 
+        res = 1;
+
         log.info(this.getClass().getName() + ".insertSongMany End!");
 
         return res;
@@ -263,6 +265,52 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
 
         log.info(this.getClass().getName() + ".deleteSong End !");
 
+
+        return res;
+    }
+
+    @Override
+    public int dropMelonCollection(String colNm) throws Exception {
+
+        log.info(this.getClass().getName() + ".dropMelonCollection");
+
+        int res = 0;
+
+        super.dropCollection(colNm);
+
+        res = 1;
+
+        log.info(this.getClass().getName() + ".dropMelonCollection");
+
+        return res;
+    }
+
+    @Override
+    public int updateSong(String pColNm, String pSinger, String pUpdateSinger) throws Exception {
+
+        log.info(this.getClass().getName() + ".updateSong");
+
+        int res = 0;
+
+        MongoCollection<Document> col = mongodb.getCollection(pColNm);
+
+        log.info("pColNm ={}", pColNm);
+
+        // 조회할 조건 (SQL의 where 역할 / select * from MELON_20220321 where singer = '방탄소년단')
+        Document query = new Document();
+        query.append("singer", pSinger);
+
+        // MongoDB 데이터 삭제는 반드시 컬렉션을 조회하고 조회된 ObjectID를 기반으로 데이터를 삭제한다.
+        // MongoDB 환경은 분산환경(Sharding)으로 구성될 수 있기 때문에 정확한 PK에 매핑하기 위해서이다.
+        FindIterable<Document> rs = col.find(query);
+
+        // 람다식 활용하여 데이터 삭제하기
+        // 전체 컬렉션에 있는 데이터들을 삭제하기
+        rs.forEach(doc -> col.updateOne(doc, new Document("$set", new Document("singer", "BTS"))));
+
+        res = 1;
+
+        log.info(this.getClass().getName() + ".updateSong End !");
 
         return res;
     }

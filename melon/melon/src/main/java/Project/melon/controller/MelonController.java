@@ -113,4 +113,24 @@ public class MelonController {
         return msg;
     }
 
+    @GetMapping(value = "melon/updateBTSName")
+    public String updateBTSName() throws Exception {
+
+        log.info(this.getClass().getName() + ".updateBTSName Start !");
+
+        String msg;
+
+        int res = melonService.updateBTSName();
+
+        if (res == 1) {
+            msg = "성공";
+        } else {
+            msg = "실패";
+        }
+
+        log.info(this.getClass().getName() + ".updateBTSName ENd !");
+
+        return msg;
+    }
+
 }

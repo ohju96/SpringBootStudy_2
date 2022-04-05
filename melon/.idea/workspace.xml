@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/SpringBootPrjApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/controller/NoticeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/dto/NoticeDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/persistance/mapper/INoticeMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/service/INoticeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/service/impl/NoticeService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/java/kopo/poly/util/CmmUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/resources/mapper/NoticeMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/MsgToList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeEditInfo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeInfo.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeList.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/main/webapp/WEB-INF/views/notice/NoticeReg.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBootPRJ/src/test/java/kopo/poly/SpringBootPrjApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +22,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/melon/build.gradle" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="" />
@@ -54,7 +31,11 @@
       <option name="presentableId" value="Default" />
       <updated>1648084360833</updated>
       <workItem from="1648084363168" duration="9000" />
+      <workItem from="1648826163116" duration="33000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

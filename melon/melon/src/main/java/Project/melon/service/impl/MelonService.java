@@ -25,6 +25,7 @@ public class MelonService implements IMelonService {
     @Resource(name = "MelonMapper")
     private IMelonMapper melonMapper; // MongoDB에 저장할 Mapper
 
+
     @Override
     public int collectMelonSong() throws Exception {
 
@@ -85,7 +86,23 @@ public class MelonService implements IMelonService {
 
     @Override
     public List<MelonDTO> getSongList() throws Exception {
-        return null;
+
+        log.info(this.getClass().getName() + ".getSongList Start !");
+
+        String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
+
+        List<MelonDTO> rList = new LinkedList<>();
+
+        rList = melonMapper.getSongList(colNm);
+
+        if (rList == null) {
+            rList = new LinkedList<>();
+        }
+
+        log.info(this.getClass().getName() + ".getSongList End!");
+
+        return rList;
+
     }
 
     @Override
@@ -213,5 +230,29 @@ public class MelonService implements IMelonService {
         log.info(this.getClass().getName() + ".deleteSong Start !");
 
         return res;
+    }
+
+    @Override
+    public int updateBTSName() throws Exception {
+
+        log.info(this.getClass().getName() + ".updateBTSName Start !");
+
+        int res = 0;
+
+        String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
+
+        melonMapper.dropMelonCollection(colNm);
+        if (this.collectMelonSong() == 1) {
+
+            String singer = "방탄소년단";
+            String updateSinger = "BTS";
+
+            res = melonMapper.updateSong(colNm, singer, updateSinger);
+        }
+
+        log.info(this.getClass().getName() + ".updateBTSName END !");
+
+        return res;
+
     }
 }
