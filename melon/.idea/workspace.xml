@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/config/RedisConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/controller/RedisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/dto/RedisDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/redis/IMyRedisMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/redis/impl/MyRedisMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/IMyRedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/impl/MyRedisService.java" afterDir="false" />
+    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="레디스 테스트하기">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melon/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/melon/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melon/src/main/java/Project/melon/config/RedisConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/config/RedisConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/impl/MyRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/impl/MyRedisService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +73,17 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MelonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="melon.melon.main" />
       <extension name="coverage">
@@ -113,7 +118,16 @@
       <workItem from="1650327511577" duration="967000" />
       <workItem from="1650331978434" duration="4174000" />
       <workItem from="1650341050856" duration="846000" />
+      <workItem from="1650368150410" duration="1500000" />
     </task>
+    <task id="LOCAL-00001" summary="레디스 테스트하기">
+      <created>1650368189987</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650368189987</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,5 +144,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="레디스 테스트하기" />
+    <option name="LAST_COMMIT_MESSAGE" value="레디스 테스트하기" />
   </component>
 </project>

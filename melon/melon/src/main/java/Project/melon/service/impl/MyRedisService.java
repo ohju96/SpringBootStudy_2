@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Service
+@Service("MyRedisService")
 public class MyRedisService implements IMyRedisService {
 
     @Resource(name = "MyRedisMapper")

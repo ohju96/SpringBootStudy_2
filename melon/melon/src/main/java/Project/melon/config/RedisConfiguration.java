@@ -14,7 +14,7 @@ public class RedisConfiguration {
      * application.properties에 정의된 변수 값을 가져온다.
      */
 
-    @Value("${spring.redis.host")
+    @Value("${spring.redis.host}")
     private String redisHost;
 
     @Value("${spring.redis.port}")
