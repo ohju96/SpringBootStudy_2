@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="레디스 테스트하기">
+    <list default="true" id="67c25923-2a6b-43ed-bcad-3ff8f5306b5d" name="Default Changelist" comment="레디스 연동 완료">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melon/src/main/java/Project/melon/config/RedisConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/config/RedisConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/impl/MyRedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/melon/src/main/java/Project/melon/service/impl/MyRedisService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +116,7 @@
       <workItem from="1650327511577" duration="967000" />
       <workItem from="1650331978434" duration="4174000" />
       <workItem from="1650341050856" duration="846000" />
-      <workItem from="1650368150410" duration="1500000" />
+      <workItem from="1650368150410" duration="2802000" />
     </task>
     <task id="LOCAL-00001" summary="레디스 테스트하기">
       <created>1650368189987</created>
@@ -127,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650368189987</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="레디스 연동 완료">
+      <created>1650372176836</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650372176836</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +152,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="레디스 테스트하기" />
-    <option name="LAST_COMMIT_MESSAGE" value="레디스 테스트하기" />
+    <MESSAGE value="레디스 연동 완료" />
+    <option name="LAST_COMMIT_MESSAGE" value="레디스 연동 완료" />
   </component>
 </project>
