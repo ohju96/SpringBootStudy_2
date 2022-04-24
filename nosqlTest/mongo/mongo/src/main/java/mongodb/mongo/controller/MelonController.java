@@ -71,5 +71,15 @@ public class MelonController {
         return rList;
     }
 
+    /**
+     *  가수별 수집된 노래의 수 가져오기
+     */
+    @GetMapping(value = "melon/getSingerSong")
+    public List<MelonDTO> getSingerSong() throws Exception {
+
+        List<MelonDTO> rList = iMelonService.getSingerSong();
+
+        return rList;
+    }
 
 }
