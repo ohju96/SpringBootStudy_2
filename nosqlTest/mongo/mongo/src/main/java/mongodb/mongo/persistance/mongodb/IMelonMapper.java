@@ -42,6 +42,13 @@ public interface IMelonMapper {
      * @param colNm
      */
     int insertSongMany(List<MelonDTO> melonDTO, String colNm) throws Exception;
+
+    /**
+     * 컬렉션 삭제하기
+     * @param colNm 삭제할 컬렉션 이름
+     * @return 저장 결과
+     */
+    int dropMelonCollertion(String colNm) throws Exception;
 }
 
 

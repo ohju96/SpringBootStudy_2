@@ -245,6 +245,22 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
 
         return res;
     }
+
+    @Override
+    public int dropMelonCollertion(String colNm) throws Exception {
+
+        log.debug(this.getClass().getName() + ".dropMelonCollection Start");
+
+        int res = 0;
+
+        super.dropCollection(colNm);
+
+        res = 1;
+
+        log.debug(this.getClass().getName() + ".dropMelonCollection End !");
+
+        return res;
+    }
 }
 
 

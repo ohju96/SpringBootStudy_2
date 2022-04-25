@@ -76,4 +76,22 @@ public abstract class AbstractMongoDBComon {
         return res;
     }
 
+    /**
+     * 컬렉션 삭제
+     * @param colNm 생성할 컬렉션명
+     * @return 삭제 결과
+     */
+    protected boolean dropCollection(String colNm) {
+
+        boolean res = false;
+
+        // 컬렉션이 존재할 때만 삭제한다.
+        if (mongodb.collectionExists(colNm)) {
+            mongodb.dropCollection(colNm);
+            res = true;
+        }
+
+        return res;
+    }
+
 }
