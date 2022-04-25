@@ -82,4 +82,28 @@ public class MelonController {
         return rList;
     }
 
+    /**
+     * 멜론 노래 리스트 저장하기
+     */
+    @GetMapping(value = "melon/collectMelonSongMany")
+    public String collectMelonSongMany() throws Exception {
+
+        log.debug(this.getClass().getName() + ".collectMelonSongMany Start");
+
+        // 수집 결과 출력
+        String msg;
+
+        int res = iMelonService.collectMelonSongMany();
+
+        if (res == 1) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        log.debug(this.getClass().getName() + ".collectMelonSongMany End");
+
+        return msg;
+    }
+
 }

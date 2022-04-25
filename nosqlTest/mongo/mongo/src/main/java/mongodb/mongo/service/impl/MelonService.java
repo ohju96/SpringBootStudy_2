@@ -142,4 +142,54 @@ public class MelonService implements IMelonService {
 
         return rList;
     }
+
+    @Override
+    public int collectMelonSongMany() throws Exception {
+
+        log.debug(this.getClass().getName() + ".collectMelonSongMany Start");
+
+        int res = 0;
+
+        List<MelonDTO> pList = new LinkedList<>();
+
+        // 멜론 탑 100위까지 정보를 가져오는 페이지
+        String url = "https://www.melon.com/chart/index.htm";
+
+        // JSOUP 라이브러리를 통해 사이트 접속되면, 그 사이트의 전체 HTML 소스를 저장할 변수
+        Document doc = Jsoup.connect(url).get();
+
+        Elements element = doc.select("div.service_list_song");
+
+        // Iterator를 사용하여 멜론 차트 정보를 가져온다.
+        //멜론 100위까지 차트
+        for (Element songInfo : element.select("div.wrap_song_info")) {
+
+            //크롤링을 통해 데이터 저장
+            String song = songInfo.select("div.ellipsis.rank01 a").text(); // 노래
+            String singer = songInfo.select("div.ellipsis.rank02 a").eq(0).text(); // 가수
+
+            log.debug("song : {}", song);
+            log.debug("singer : {}", singer);
+
+            // 가수와 노래 정보가 모두 수집되었다면, 저장한다.
+            if ((song.length() > 0) && (singer.length() > 0)) {
+
+                MelonDTO melonDTO = new MelonDTO();
+                melonDTO.setCollectTime(DateUtil.getDateTime("yyyyMMddhhmmss"));
+                melonDTO.setSong(song);
+                melonDTO.setSinger(singer);
+
+                pList.add(melonDTO);
+            }
+
+        }
+
+        String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
+
+        res = iMelonMapper.insertSongMany(pList, colNm);
+
+        log.debug(this.getClass().getName() + ".collectMelonSongMany End");
+
+        return res;
+    }
 }

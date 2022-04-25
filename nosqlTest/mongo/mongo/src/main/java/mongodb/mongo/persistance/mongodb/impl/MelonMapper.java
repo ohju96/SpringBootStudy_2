@@ -213,6 +213,38 @@ public class MelonMapper extends AbstractMongoDBComon implements IMelonMapper {
 
         return rList;
     }
+
+    @Override
+    public int insertSongMany(List<MelonDTO> pList, String colNm) throws Exception {
+
+        log.debug(this.getClass().getName() + ".insertSongMany Start");
+
+        int res = 0;
+
+        if (pList == null) {
+            pList = new LinkedList<>();
+        }
+
+        // 데이터를 저장할 컬렉션 생성
+        super.createCollection(colNm, "collectTime");
+
+        // 저장할 컬렉션 객체 생성
+        MongoCollection<Document> col = mongodb.getCollection(colNm);
+
+        List<Document> list = new ArrayList<>();
+
+        // 중요 !! 람다식 활용 stream과 -> 사용
+        pList.stream().forEach(melon -> list.add(new Document(new ObjectMapper().convertValue(melon, Map.class))));
+
+        // 레코드 리스트 단위로 한번에 저장하기
+        col.insertMany(list);
+
+        res = 1;
+
+        log.debug(this.getClass().getName() + ".insertSongMany End");
+
+        return res;
+    }
 }
 
 

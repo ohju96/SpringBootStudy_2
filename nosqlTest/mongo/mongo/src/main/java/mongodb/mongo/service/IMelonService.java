@@ -26,4 +26,9 @@ public interface IMelonService {
      * @return 노래 리스트
      */
     List<MelonDTO> getSingerSong() throws Exception;
+
+    /**
+     * 멜론 노래 리스트 한번에 저장하기
+     */
+    int collectMelonSongMany() throws Exception;
 }
