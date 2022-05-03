@@ -13,7 +13,8 @@ public interface IMyRedisService {
     /**
      * String 타입 가져오기
      */
-    int getRedisStringJSON() throws Exception;
+    int saveREdisStringJSON() throws Exception;
 
+    RedisDto getRedisStringJSON() throws Exception;
 
 }

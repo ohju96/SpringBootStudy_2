@@ -42,7 +42,7 @@ public class MyRedisService implements IMyRedisService {
     }
 
     @Override
-    public int getRedisStringJSON() throws Exception {
+    public int saveREdisStringJSON() throws Exception {
 
         String redisKey = "myRedis_String_JSON";
 
@@ -55,5 +55,18 @@ public class MyRedisService implements IMyRedisService {
         int res = iMyRedisMapper.saveRedisStringJSON(redisKey, redisDto);
 
         return res;
+    }
+
+    @Override
+    public RedisDto getRedisStringJSON() throws Exception {
+        String redisKey = "myRedis_String_JSON";
+
+        RedisDto redisDto = iMyRedisMapper.getRedisStringJSON(redisKey);
+
+        if (redisDto == null) {
+            redisDto = new RedisDto();
+        }
+
+        return redisDto;
     }
 }

@@ -47,7 +47,7 @@ public class RedisController {
 
         String msg;
 
-        int res = iMyRedisService.getRedisStringJSON();
+        int res = iMyRedisService.saveREdisStringJSON();
 
         if (res == 1) {
             msg = "success";
@@ -56,6 +56,12 @@ public class RedisController {
         }
 
         return msg;
+    }
+
+    @GetMapping(value = "redis/getRedisStringJSON")
+    public RedisDto getRedisStringJSON() throws Exception {
+        RedisDto redisDto = iMyRedisService.getRedisStringJSON();
+        return redisDto;
     }
 
 }

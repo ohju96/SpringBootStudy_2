@@ -92,6 +92,24 @@ public class MyRedisMapper implements IMyRedisMapper {
     }
 
     @Override
+    public RedisDto getRedisStringJSON(String redisKey) throws Exception {
+
+        RedisDto redisDto = null;
+
+        // redisDB의 키 데이터 타입을 String으로 정의(항상 String으로 설정함)
+        redisDB.setKeySerializer(new StringRedisSerializer()); //String 타입
+
+        //RedisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        if (redisDB.hasKey(redisKey)) { //데이터가 존재하지 않으면 저장하기
+            redisDto = (RedisDto) redisDB.opsForValue().get(redisKey);
+        }
+
+        return redisDto;
+    }
+
+    @Override
     public int saveRedisList(String redisKey, List<RedisDto> pList) throws Exception {
         return 0;
     }
