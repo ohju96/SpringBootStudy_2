@@ -30,4 +30,6 @@ public interface IMyRedisMapper {
      * List 타입에 여러 문자열로 저장하기(동기화)
      */
     int saveRedisList(String redisKey, List<RedisDto> pList) throws Exception;
+
+    List<String> getRedisList(String redisKey) throws  Exception;
 }

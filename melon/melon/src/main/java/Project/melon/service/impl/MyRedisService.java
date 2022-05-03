@@ -6,6 +6,8 @@ import Project.melon.service.IMyRedisService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.LinkedList;
+import java.util.List;
 
 @Service("MyRedisService")
 public class MyRedisService implements IMyRedisService {
@@ -68,5 +70,37 @@ public class MyRedisService implements IMyRedisService {
         }
 
         return redisDto;
+    }
+
+    @Override
+    public int saveRedisList() throws Exception {
+
+        String redisKey = "myRedis_List";
+
+        LinkedList<RedisDto> pList = new LinkedList<>();
+
+        for (int i = 0; i < 10; i++) {
+            RedisDto redisDto = new RedisDto();
+            redisDto.setTest_text(i + "번째 데이터입니다.");
+            pList.add(redisDto);
+            redisDto = null;
+        }
+        int res = iMyRedisMapper.saveRedisList(redisKey, pList);
+
+        return res;
+    }
+
+    @Override
+    public List<String> getRedisList() throws Exception {
+
+        String redisKey = "myRedis_List";
+
+        List<String> rList = iMyRedisMapper.getRedisList(redisKey);
+
+        if (rList == null) {
+            rList = new LinkedList<>();
+        }
+
+        return rList;
     }
 }

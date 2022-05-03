@@ -2,6 +2,7 @@ package Project.melon.redis.impl;
 
 import Project.melon.dto.RedisDto;
 import Project.melon.redis.IMyRedisMapper;
+import Project.melon.utill.CmmUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -111,6 +112,41 @@ public class MyRedisMapper implements IMyRedisMapper {
 
     @Override
     public int saveRedisList(String redisKey, List<RedisDto> pList) throws Exception {
-        return 0;
+
+        int res = 0;
+
+        // redis 저장 및 읽기에 대한 데이터 타입 지정(String 타입으로 지정함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+        redisDB.setValueSerializer(new StringRedisSerializer());
+
+        for (RedisDto dto : pList) {
+            //오름차순 저장
+            redisDB.opsForList().rightPush(redisKey, CmmUtil.nvl(dto.getTest_text()));
+            //내림차순으로 저장
+            //redisDB.opsForList().leftPush(redisKey, CmmUtil.nvl(dto.getTest_text()));
+        }
+
+
+        redisDB.expire(redisKey, 5, TimeUnit.HOURS);
+
+        res = 1;
+
+        return res;
+    }
+
+    @Override
+    public List<String> getRedisList(String redisKey) throws Exception {
+
+        List<String> rList = null;
+
+        // redis 저장 및 일기에 대한 데이터 타입 지정(String 타입으로 지정함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+        redisDB.setValueSerializer(new StringRedisSerializer());
+
+        if (redisDB.hasKey(redisKey)) {
+            rList = (List) redisDB.opsForList().range(redisKey, 0, -1);
+        }
+
+        return rList;
     }
 }

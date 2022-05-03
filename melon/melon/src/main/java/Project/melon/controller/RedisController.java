@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -62,6 +63,33 @@ public class RedisController {
     public RedisDto getRedisStringJSON() throws Exception {
         RedisDto redisDto = iMyRedisService.getRedisStringJSON();
         return redisDto;
+    }
+
+    /**
+     * List 타입에 여러 문자열로 저장하기(동기화)
+     */
+    @GetMapping(value = "redis/saveRedisList")
+    public String saveRedisList() throws Exception {
+
+        String msg;
+
+        int res = iMyRedisService.saveRedisList();
+
+        if (res == 1) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        return msg;
+    }
+
+    @GetMapping(value = "redis/getRedisList")
+    private List<String> getRedisList() throws Exception {
+
+        List<String> rList = iMyRedisService.getRedisList();
+
+        return rList;
     }
 
 }
