@@ -1,6 +1,8 @@
 package Project.melon.controller;
 
+import Project.melon.dto.RedisDto;
 import Project.melon.service.IMyRedisService;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,33 @@ public class RedisController {
         String msg;
 
         int res = iMyRedisService.saveRedisString();
+
+        if (res == 1) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        return msg;
+    }
+
+    /**
+     * Redis 문자열 저장된 값 가져오기
+     */
+    @GetMapping(value = "redis/getRedisString")
+    public RedisDto getRedisString() throws Exception {
+
+        RedisDto redisDto = iMyRedisService.getRedisString();
+
+        return redisDto;
+    }
+
+    @GetMapping(value = "redis/saveRedisStringJSON")
+    public String saveRedisStringJSON() throws Exception {
+
+        String msg;
+
+        int res = iMyRedisService.getRedisStringJSON();
 
         if (res == 1) {
             msg = "success";

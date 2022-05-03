@@ -25,4 +25,35 @@ public class MyRedisService implements IMyRedisService {
 
         return res;
     }
+
+    @Override
+    public RedisDto getRedisString() throws Exception {
+
+        String redisKey = "myRedis_String";
+
+        RedisDto redisDto = iMyRedisMapper.getRedisString(redisKey);
+
+        if (redisDto == null) {
+            redisDto = new RedisDto();
+        }
+
+
+        return redisDto;
+    }
+
+    @Override
+    public int getRedisStringJSON() throws Exception {
+
+        String redisKey = "myRedis_String_JSON";
+
+        RedisDto redisDto = new RedisDto();
+        redisDto.setTest_text("난 String 타입에 JSON 구조로 저장할 일반 문자열이다.");
+        redisDto.setName("오주현");
+        redisDto.setAddr("경기");
+        redisDto.setEmail("ohju96@gmail.com");
+
+        int res = iMyRedisMapper.saveRedisStringJSON(redisKey, redisDto);
+
+        return res;
+    }
 }

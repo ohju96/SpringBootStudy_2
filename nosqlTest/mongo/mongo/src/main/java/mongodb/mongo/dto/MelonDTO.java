@@ -11,4 +11,5 @@ public class MelonDTO {
     String song;
     String singer;
     int singerCnt;
+
 }
