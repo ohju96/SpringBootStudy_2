@@ -30,4 +30,9 @@ public interface IMyRedisService {
      * List 타입에 JSON 형태로 저장하기(동기화)
      */
     int saveRedisListJSON() throws Exception;
+
+    /**
+     * List 타입에 JSNO 형태로 저장된 데이터 가져오기
+     */
+    List<RedisDto> getRedisListJSON() throws Exception;
 }

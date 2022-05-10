@@ -112,4 +112,14 @@ public class RedisController {
         return msg;
     }
 
+    /**
+     * List 타입에 JSON 형태로 저장된 데이터 가져오기
+     */
+    @GetMapping(value = "redis/getRedisListJSON")
+    public List<RedisDto> getRedisListJSON() throws Exception {
+        List<RedisDto> rList = iMyRedisService.getRedisListJSON();
+        return rList;
+    }
+
+
 }

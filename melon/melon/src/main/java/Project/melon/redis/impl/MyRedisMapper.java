@@ -177,4 +177,23 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return res;
     }
+
+    @Override
+    public List<RedisDto> getRedisListJSON(String redisKey) throws Exception {
+
+        // 결과 값 저장할 객체
+        List<RedisDto> rList = null;
+
+        // redisDB의 키의 데이터 타입을 String으로 정의(항상 String으로 설정)
+        redisDB.setKeySerializer(new StringRedisSerializer()); // String 타입
+
+        // RedisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        if (redisDB.hasKey(redisKey)) {
+            rList = (List) redisDB.opsForList().range(redisKey, 0, -1); //전체 데이터를 가져오는 데이터 끝 범위 값을 -1로 설정
+        }
+
+        return rList;
+    }
 }
