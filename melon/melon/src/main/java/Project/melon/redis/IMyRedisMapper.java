@@ -32,4 +32,9 @@ public interface IMyRedisMapper {
     int saveRedisList(String redisKey, List<RedisDto> pList) throws Exception;
 
     List<String> getRedisList(String redisKey) throws  Exception;
+
+    /**
+     * List 타입에 JSON 형태로 저장하기(동기화)
+     */
+    int saveRedisListJSON(String redisKey, List<RedisDto> pList) throws Exception;
 }

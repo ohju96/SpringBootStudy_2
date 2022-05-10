@@ -149,4 +149,32 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return rList;
     }
+
+    @Override
+    public int saveRedisListJSON(String redisKey, List<RedisDto> pList) throws Exception {
+
+        int res = 0;
+
+        // redisDB의 키의 데이터 타입을 String으로 정의 (항상 String으로 설정한다.)
+        redisDB.setKeySerializer(new StringRedisSerializer()); // String 타입
+
+        // redisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        for (RedisDto redisDto : pList) {
+            //오름차순으로 저장
+            redisDB.opsForList().rightPushIfPresent(redisKey, redisDto);
+
+            // 내림차순으로 저장하기
+            //redisDB.opsForList().leftPush(redisKey, redisDto);
+
+        }
+
+        // 저장되는 데이터의 유효기간(TTL)은 5시간으로 정의
+        redisDB.expire(redisKey, 5, TimeUnit.HOURS);
+
+        res = 1;
+
+        return res;
+    }
 }

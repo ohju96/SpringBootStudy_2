@@ -103,4 +103,27 @@ public class MyRedisService implements IMyRedisService {
 
         return rList;
     }
+
+    @Override
+    public int saveRedisListJSON() throws Exception {
+
+        String redisKey = "myRedis_List_JSON";
+
+        List<RedisDto> pList = new LinkedList<>();
+
+        for (int i = 0; i < 10; i ++) {
+            RedisDto redisDto = new RedisDto();
+            redisDto.setTest_text(i + "번째 데이터입니다.");
+            redisDto.setName("오주현[" + i + "]");
+            redisDto.setAddr("경기");
+            redisDto.setEmail("ojh@ojh");
+
+            pList.add(redisDto);
+            redisDto = null;
+        }
+
+        int res = iMyRedisMapper.saveRedisListJSON(redisKey, pList);
+
+        return res;
+    }
 }

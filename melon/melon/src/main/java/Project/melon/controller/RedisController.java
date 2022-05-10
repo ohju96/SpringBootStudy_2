@@ -92,4 +92,24 @@ public class RedisController {
         return rList;
     }
 
+    /**
+     * List 타입에 JSON 형태로 저장하기(동기화)
+     */
+    @GetMapping(value = "redis/saveRedisListJSON")
+    public String saveRedisListJSON() throws Exception {
+
+        // 수집 결과 출력
+        String msg;
+
+        int res = iMyRedisService.saveRedisListJSON();
+
+        if (res == 1) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        return msg;
+    }
+
 }
