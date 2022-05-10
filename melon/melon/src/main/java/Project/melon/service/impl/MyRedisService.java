@@ -163,4 +163,18 @@ public class MyRedisService implements IMyRedisService {
 
         return res;
     }
+
+    @Override
+    public List<RedisDto> getRedisListJSONRamda() throws Exception {
+
+        String redisKey = "myRedis_List_JSON_Ramda";
+
+        List<RedisDto> rList = iMyRedisMapper.getRedisListJSON(redisKey);
+
+        if (rList == null) {
+            rList = new LinkedList<>();
+        }
+
+        return rList;
+    }
 }

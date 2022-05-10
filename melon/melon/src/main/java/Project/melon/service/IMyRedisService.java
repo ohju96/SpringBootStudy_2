@@ -40,4 +40,12 @@ public interface IMyRedisService {
      * List 타입에 JSON 형태로 람다식을 이용하여 저장하기(비동기화)
      */
     int saveRedisListJSONRamda() throws Exception;
+
+    /**
+     * List 타입에 JSON 형태로 저장된 데이터 가져오기
+     *
+     * 람다식 저장된 Redis 키 값이 달라서 함수 별도로 만듬
+     * 매퍼 호출은 앞서 만든 getRedisListJSON 호출함
+     */
+    List<RedisDto> getRedisListJSONRamda() throws Exception;
 }

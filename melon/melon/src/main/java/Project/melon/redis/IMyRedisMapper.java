@@ -48,5 +48,4 @@ public interface IMyRedisMapper {
      */
     int saveRedisListJSONRamda(String redisKey, List<RedisDto> pList) throws Exception;
 
-
 }
