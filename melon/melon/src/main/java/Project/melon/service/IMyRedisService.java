@@ -58,4 +58,11 @@ public interface IMyRedisService {
      * Hash 타입에 문자열 형태로 저장된 값 가져오기
      */
     RedisDto getRedisHash() throws Exception;
+
+    /**
+     * Set 타입에 JSON 형태로 람다식을 이용하여 저장하기
+
+     */
+    int saveREdisSetJSONRamda() throws Exception;
+
 }

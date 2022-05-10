@@ -3,6 +3,7 @@ package Project.melon.redis;
 import Project.melon.dto.RedisDto;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IMyRedisMapper {
 
@@ -59,4 +60,7 @@ public interface IMyRedisMapper {
      * @return 결과 값
      */
     RedisDto getRedisHash(String redisKey) throws Exception;
+
+    int saveRedisSetJSONRamda(String redisKey, Set<RedisDto> pSet) throws Exception;
+
 }
