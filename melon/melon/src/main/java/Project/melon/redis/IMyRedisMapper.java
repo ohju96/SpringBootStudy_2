@@ -52,4 +52,11 @@ public interface IMyRedisMapper {
      * Hash 타입에 문자열 형태로 저장하기
      */
     int saveRedisHash(String redisKey, RedisDto redisDto) throws Exception;
+
+    /**
+     * Hash 타입에 문자열 형태로 저장된 값 가져오기
+     * @param redisKey 가져올 RedisKey
+     * @return 결과 값
+     */
+    RedisDto getRedisHash(String redisKey) throws Exception;
 }

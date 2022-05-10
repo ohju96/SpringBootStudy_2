@@ -192,4 +192,18 @@ public class MyRedisService implements IMyRedisService {
 
         return res;
     }
+
+    @Override
+    public RedisDto getRedisHash() throws Exception {
+
+        String redisKey = "myReids_Hash";
+
+        RedisDto redisDto = iMyRedisMapper.getRedisHash(redisKey);
+
+        if (redisDto == null) {
+            redisDto = new RedisDto();
+        }
+
+        return redisDto;
+    }
 }

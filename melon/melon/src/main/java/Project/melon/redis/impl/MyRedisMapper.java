@@ -239,4 +239,26 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return res;
     }
+
+    @Override
+    public RedisDto getRedisHash(String redisKey) throws Exception {
+
+        RedisDto redisDto = new RedisDto();
+
+        // redis 저장 및 읽기에 대한 데이터 타입 지정(String 타입으로 지정함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+        redisDB.setValueSerializer(new StringRedisSerializer());
+
+        if (redisDB.hasKey(redisKey)) {
+            String name = CmmUtil.nvl((String) redisDB.opsForHash().get(redisKey, "name"));
+            String email = CmmUtil.nvl((String) redisDB.opsForHash().get(redisKey, "email"));
+            String addr = CmmUtil.nvl((String) redisDB.opsForHash().get(redisKey, "addr"));
+
+
+            redisDto.setName(name);
+            redisDto.setEmail(email);
+            redisDto.setAddr(addr);
+        }
+        return redisDto;
+    }
 }

@@ -53,4 +53,9 @@ public interface IMyRedisService {
      * Hash 타입에 문자열 형태로 저장하기
      */
     int saveRedisHash() throws Exception;
+
+    /**
+     * Hash 타입에 문자열 형태로 저장된 값 가져오기
+     */
+    RedisDto getRedisHash() throws Exception;
 }

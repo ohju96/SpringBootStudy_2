@@ -168,4 +168,15 @@ public class RedisController {
 
         return msg;
     }
+
+    /**
+     * Hash 타입에 문장려 형태로 저장된 값 가져오기
+     */
+    @GetMapping(value = "redis/getRedisHash")
+    public RedisDto getRedisHash() throws Exception {
+
+        RedisDto redisDto = iMyRedisService.getRedisHash();
+
+        return redisDto;
+    }
 }
