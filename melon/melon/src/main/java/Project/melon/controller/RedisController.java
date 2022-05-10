@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Set;
 
 @Slf4j
 @RestController
@@ -194,5 +195,13 @@ public class RedisController {
         }
 
         return msg;
+    }
+
+    @GetMapping(value = "redis/getRedisSetJSONRamda")
+    public Set<RedisDto> getRedisSetJSONRamda() throws Exception{
+
+        Set<RedisDto> rSet = iMyRedisService.getRedisSetJSONRamda();
+
+        return rSet;
     }
 }

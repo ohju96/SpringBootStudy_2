@@ -227,4 +227,17 @@ public class MyRedisService implements IMyRedisService {
 
         return res;
     }
+
+    @Override
+    public Set<RedisDto> getRedisSetJSONRamda() throws Exception {
+
+        String redisKey = "myRedis_Set_JSON";
+        Set<RedisDto> rSet = iMyRedisMapper.getRedisSetJSONRamda(redisKey);
+
+        if (rSet == null) {
+            rSet = new HashSet<>();
+        }
+
+        return rSet;
+    }
 }

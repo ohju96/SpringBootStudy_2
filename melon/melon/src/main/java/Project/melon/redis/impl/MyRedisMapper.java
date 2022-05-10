@@ -285,4 +285,22 @@ public class MyRedisMapper implements IMyRedisMapper {
         return res;
 
     }
+
+    @Override
+    public Set<RedisDto> getRedisSetJSONRamda(String redisKey) throws Exception {
+        // 결과값 전달할 객체
+        Set<RedisDto> rSet = null;
+
+        // redisDB의 키의 데이터 타입을 String으로 정의(항상 String으로 설정함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+
+        // RedisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        if (redisDB.hasKey(redisKey)) {
+            rSet = (Set) redisDB.opsForSet().members(redisKey);
+        }
+
+        return rSet;
+    }
 }
