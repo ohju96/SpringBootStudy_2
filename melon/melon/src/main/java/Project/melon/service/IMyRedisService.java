@@ -48,4 +48,9 @@ public interface IMyRedisService {
      * 매퍼 호출은 앞서 만든 getRedisListJSON 호출함
      */
     List<RedisDto> getRedisListJSONRamda() throws Exception;
+
+    /**
+     * Hash 타입에 문자열 형태로 저장하기
+     */
+    int saveRedisHash() throws Exception;
 }

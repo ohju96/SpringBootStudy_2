@@ -219,4 +219,24 @@ public class MyRedisMapper implements IMyRedisMapper {
         return res;
     }
 
+    @Override
+    public int saveRedisHash(String redisKey, RedisDto redisDto) throws Exception {
+
+        int res = 0;
+
+        // redis 저장 및 읽기에 대한 데이터 타입 지정(String으로 지정)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+        redisDB.setValueSerializer(new StringRedisSerializer());
+
+        redisDB.opsForHash().put(redisKey, "name", CmmUtil.nvl(redisDto.getName()));
+        redisDB.opsForHash().put(redisKey, "email", CmmUtil.nvl(redisDto.getEmail()));
+        redisDB.opsForHash().put(redisKey, "addr", CmmUtil.nvl(redisDto.getAddr()));
+
+        // 저장되는 ㅔㄷ이터의 유효기간(TTL)은 100분으로 정의
+        redisDB.expire(redisKey, 100, TimeUnit.MINUTES);
+
+        res = 1;
+
+        return res;
+    }
 }

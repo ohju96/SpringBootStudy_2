@@ -48,4 +48,8 @@ public interface IMyRedisMapper {
      */
     int saveRedisListJSONRamda(String redisKey, List<RedisDto> pList) throws Exception;
 
+    /**
+     * Hash 타입에 문자열 형태로 저장하기
+     */
+    int saveRedisHash(String redisKey, RedisDto redisDto) throws Exception;
 }

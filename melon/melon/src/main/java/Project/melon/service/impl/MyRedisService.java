@@ -177,4 +177,19 @@ public class MyRedisService implements IMyRedisService {
 
         return rList;
     }
+
+    @Override
+    public int saveRedisHash() throws Exception {
+
+        String redisKey = "myRedis_Hash";
+
+        RedisDto redisDto = new RedisDto();
+        redisDto.setName("오주현");
+        redisDto.setAddr("경기");
+        redisDto.setEmail("ojh@ojh");
+
+        int res = iMyRedisMapper.saveRedisHash(redisKey, redisDto);
+
+        return res;
+    }
 }
