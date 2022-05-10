@@ -42,4 +42,11 @@ public interface IMyRedisMapper {
      * List 타입에 JSON 형태로 저장된 데이터 가져오기
      */
     List<RedisDto> getRedisListJSON(String redisKey) throws Exception;
+
+    /**
+     * List 타입에 JSON 형태로 람다식을 이용하여 저장하기(비동기화)
+     */
+    int saveRedisListJSONRamda(String redisKey, List<RedisDto> pList) throws Exception;
+
+
 }

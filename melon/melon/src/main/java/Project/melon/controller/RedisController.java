@@ -121,5 +121,24 @@ public class RedisController {
         return rList;
     }
 
+    /**
+     * List 타입에 JSNO 형태로 람다식을 이용하여 저장하기(비동기화)
+     */
+    @GetMapping(value = "redis/saveRedisListJSONRamda")
+    public String saveRedisListJSONRamda() throws Exception {
+
+        // 수집 결과 출력
+        String msg;
+
+        int res = iMyRedisService.saveRedisListJSONRamda();
+
+        if (res == 1) {
+            msg = "success";
+        } else {
+            msg = "fail";
+        }
+
+        return msg;
+    }
 
 }

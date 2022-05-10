@@ -196,4 +196,27 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return rList;
     }
+
+    @Override
+    public int saveRedisListJSONRamda(String redisKey, List<RedisDto> pList) throws Exception {
+
+        int res = 0;
+
+        // redisDB의 키의 데이터 타입을 String으로 정의(항상 String으로 설정함)
+        redisDB.setKeySerializer(new StringRedisSerializer()); // String 타입
+
+        // RedisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        // 람다식 사용은 순서에 상관없이 저장하기 때문에 오름차순, 내림차순은 중요하지 않다.
+        pList.forEach(dto -> redisDB.opsForList().rightPush(redisKey, dto));
+
+        // 저장되는 데이터의 유효기간(TTL)은 5시간으로 정의
+        redisDB.expire(redisKey, 5, TimeUnit.HOURS);
+
+        res = 1;
+
+        return res;
+    }
+
 }

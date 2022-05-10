@@ -6,6 +6,7 @@ import Project.melon.service.IMyRedisService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -138,5 +139,28 @@ public class MyRedisService implements IMyRedisService {
         }
 
         return rList;
+    }
+
+    @Override
+    public int saveRedisListJSONRamda() throws Exception {
+
+        String redisKey = "myRedis_List_JSON_Ramda";
+
+        List<RedisDto> pList = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++){
+            RedisDto redisDto = new RedisDto();
+            redisDto.setTest_text(i + "번째 데이터입니다.");
+            redisDto.setName("오주현[" + i + "]");
+            redisDto.setAddr("경기");
+            redisDto.setEmail("ojh@ojh");
+
+            pList.add(redisDto);
+            redisDto = null;
+        }
+
+        int res = iMyRedisMapper.saveRedisListJSONRamda(redisKey, pList);
+
+        return res;
     }
 }
