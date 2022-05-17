@@ -76,4 +76,12 @@ public interface IMyRedisMapper {
      */
     Set<RedisDto> getRedisSetJSONRamda(String redisKey) throws Exception;
 
+    /**
+     *  ZSet 타입에 JSON 형태로 저장하기
+     * @param redisKey Redis 저장 키
+     * @param pList 저장할 정보들
+     * @return 저장 성공 여부
+     */
+    int saveRedisZSetJSON(String redisKey, List<RedisDto> pList) throws Exception;
+
 }

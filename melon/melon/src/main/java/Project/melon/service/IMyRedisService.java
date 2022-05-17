@@ -70,4 +70,11 @@ public interface IMyRedisService {
      * Set 타입에 JSON 형태로 람다식을 이용하여 저장된 값 가져오기
      */
     Set<RedisDto> getRedisSetJSONRamda() throws Exception;
+
+
+    /**
+     * ZSet 타입에 JSON 형태로 저장하기
+     */
+    int saveRedisZSetJSON() throws Exception;
+
 }

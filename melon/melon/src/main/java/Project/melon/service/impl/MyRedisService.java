@@ -3,11 +3,13 @@ package Project.melon.service.impl;
 import Project.melon.dto.RedisDto;
 import Project.melon.redis.IMyRedisMapper;
 import Project.melon.service.IMyRedisService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
 
+@Slf4j
 @Service("MyRedisService")
 public class MyRedisService implements IMyRedisService {
 
@@ -239,5 +241,31 @@ public class MyRedisService implements IMyRedisService {
         }
 
         return rSet;
+    }
+
+    @Override
+    public int saveRedisZSetJSON() throws Exception {
+
+        String redisKey = "myREdis_Zset_JSON";
+
+        List<RedisDto> pList = new LinkedList<>();
+
+        for (int i = 0; i < 10; i++) {
+
+            RedisDto redisDto = new RedisDto();
+            redisDto.setTest_text(i + " 번째 데이터입니다.");
+            redisDto.setName("오주현[" + i + "]");
+            redisDto.setAddr("경기");
+            redisDto.setEmail("qwe@naver.com");
+
+            pList.add(redisDto);
+            redisDto = null;
+        }
+
+        log.debug("### pList : {}", pList);
+
+        int res = iMyRedisMapper.saveRedisZSetJSON(redisKey, pList);
+
+        return res;
     }
 }

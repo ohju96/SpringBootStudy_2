@@ -303,4 +303,30 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return rSet;
     }
+
+    @Override
+    public int saveRedisZSetJSON(String redisKey, List<RedisDto> pList) throws Exception {
+
+        int res = 0;
+
+        // redisD의 키의 데이터 타입을 String으로 정의(항상 String으로 설정함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+
+        //RedisDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        int idx = 0;
+
+        for (RedisDto dto : pList) {
+            redisDB.opsForZSet().add(redisKey, dto, ++idx); // 저장할 떄 Score 값을 지정해야 한다.
+        }
+
+        // 저장되는 데이터의 유효기간(TTL)은 5시간으로 정의
+        redisDB.expire(redisKey, 5, TimeUnit.HOURS);
+
+        res = 1;
+
+
+        return res;
+    }
 }
