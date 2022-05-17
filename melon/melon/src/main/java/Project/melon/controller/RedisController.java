@@ -222,4 +222,26 @@ public class RedisController {
 
         return msg;
     }
+
+    /**
+     * ZSet 타입에 JSON 형태로 젖아된 값 가져오기
+     */
+    @GetMapping(value = "redis/getREdisZSetJSON")
+    public Set<RedisDto> getRedisZSetJSON() throws Exception {
+
+        Set<RedisDto> redisDtoSet = iMyRedisService.getRedisZSetJSON();
+
+        return redisDtoSet;
+    }
+
+    /**
+     * ZSet 데이터 삭제
+     */
+    @GetMapping(value = "redis/deleteDataJSON")
+    public boolean deleteDataJSON() throws Exception {
+
+        boolean res = iMyRedisService.deleteDataJSON();
+
+        return res;
+    }
 }

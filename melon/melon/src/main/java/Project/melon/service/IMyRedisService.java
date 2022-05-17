@@ -77,4 +77,14 @@ public interface IMyRedisService {
      */
     int saveRedisZSetJSON() throws Exception;
 
+    /**
+     * ZSet 타입에 JSON 형태로 저장된 값 가져오기
+     */
+    Set<RedisDto> getRedisZSetJSON() throws Exception;
+
+    /**
+     * Redis에 JSON 구조로 저장된 데이터 삭제하기
+     */
+    boolean deleteDataJSON() throws Exception;
+
 }

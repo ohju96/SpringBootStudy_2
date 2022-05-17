@@ -329,4 +329,45 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return res;
     }
+
+    @Override
+    public Set<RedisDto> getRedisZSetJSON(String redisKey) throws Exception {
+
+        // 결과 값 전달할 객체
+        Set<RedisDto> redisDtoSet = null;
+
+        // redisDB의 키의 데이터 타입을 String으로 정의(항상 String으로 정의함)
+        redisDB.setKeySerializer(new StringRedisSerializer());
+
+        // ReidsDTO에 저장된 데이터를 자동으로 JSON으로 변경하기
+        redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        if (redisDB.hasKey(redisKey)) {
+
+            // 저장된 전체 레코드 수
+            Long cnt = redisDB.opsForZSet().size(redisKey);
+
+            redisDtoSet = (Set) redisDB.opsForZSet().range(redisKey, 0, cnt);
+
+        }
+
+        return redisDtoSet;
+    }
+
+    @Override
+    public boolean deleteDataJSON(String redisKey) throws Exception {
+
+        // 저장되었던 데이터 타입 정의
+        //redisDB.setKeySerializer(new StringRedisSerializer());
+        //redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(RedisDto.class));
+
+        boolean res = false;
+
+        if (redisDB.hasKey(redisKey)) {
+            redisDB.delete(redisKey);
+            res = true;
+        }
+
+        return res;
+    }
 }

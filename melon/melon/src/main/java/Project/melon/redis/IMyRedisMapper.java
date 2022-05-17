@@ -84,4 +84,17 @@ public interface IMyRedisMapper {
      */
     int saveRedisZSetJSON(String redisKey, List<RedisDto> pList) throws Exception;
 
+    /**
+     * ZSet 타입에 JSON 형태로 저장된 값 가져오기
+     * @param redisKey 가져올 RedisKey
+     * @return 결과 값
+     */
+    Set<RedisDto> getRedisZSetJSON(String redisKey) throws Exception;
+
+    /**
+     * Redis에 JSON 구조로 저장된 데이터 삭제하기
+     * @param redisKey 삭제할 RedisKey
+     * @return 결과 값
+     */
+    boolean deleteDataJSON(String redisKey) throws Exception;
 }

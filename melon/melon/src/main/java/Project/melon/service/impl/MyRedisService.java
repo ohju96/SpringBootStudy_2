@@ -246,7 +246,7 @@ public class MyRedisService implements IMyRedisService {
     @Override
     public int saveRedisZSetJSON() throws Exception {
 
-        String redisKey = "myREdis_Zset_JSON";
+        String redisKey = "myRedis_Zset_JSON";
 
         List<RedisDto> pList = new LinkedList<>();
 
@@ -265,6 +265,30 @@ public class MyRedisService implements IMyRedisService {
         log.debug("### pList : {}", pList);
 
         int res = iMyRedisMapper.saveRedisZSetJSON(redisKey, pList);
+
+        return res;
+    }
+
+    @Override
+    public Set<RedisDto> getRedisZSetJSON() throws Exception {
+
+        String redisKey = "myRedis_Zset_JSON";
+
+        Set<RedisDto> redisDtoSet = iMyRedisMapper.getRedisZSetJSON(redisKey);
+
+        if (redisDtoSet == null) {
+            redisDtoSet = new HashSet<>();
+        }
+
+        return redisDtoSet;
+    }
+
+    @Override
+    public boolean deleteDataJSON() throws Exception {
+
+        String redisKey = "myRedis_Zset_JSON";
+
+        boolean res = iMyRedisMapper.deleteDataJSON(redisKey);
 
         return res;
     }
