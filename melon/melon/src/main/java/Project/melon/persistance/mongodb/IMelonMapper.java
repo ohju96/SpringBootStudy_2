@@ -71,10 +71,6 @@ public interface IMelonMapper {
      * 가수의 이름 수정하기
      * 방탄소년단을 BTS로 변경
      *
-     *
-     *
-     *
-     *
      * @param colNm 저장할 컬렉션 이름
      * @param singer 수정할 가수이름
      * @param updateSinger 수정될 가수이름
@@ -102,6 +98,7 @@ public interface IMelonMapper {
      * @throws Exception
      */
     int updateSongAddListField(String colNm, String singer, List<String> member) throws Exception;
+
 
 
 }

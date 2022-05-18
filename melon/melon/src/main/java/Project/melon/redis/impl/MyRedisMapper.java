@@ -370,4 +370,5 @@ public class MyRedisMapper implements IMyRedisMapper {
 
         return res;
     }
+
 }

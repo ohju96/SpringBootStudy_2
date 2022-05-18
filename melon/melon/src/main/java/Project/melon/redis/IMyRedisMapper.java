@@ -97,4 +97,6 @@ public interface IMyRedisMapper {
      * @return 결과 값
      */
     boolean deleteDataJSON(String redisKey) throws Exception;
+
+
 }

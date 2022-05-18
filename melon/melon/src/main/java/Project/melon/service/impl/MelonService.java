@@ -2,10 +2,13 @@ package Project.melon.service.impl;
 
 import Project.melon.dto.MelonDTO;
 import Project.melon.persistance.mongodb.IMelonMapper;
+import Project.melon.persistance.mongodb.impl.MelonMapper;
+import Project.melon.redis.IMelonCacheMapper;
 import Project.melon.service.IMelonService;
 import Project.melon.utill.CmmUtil;
 import Project.melon.utill.DateUtil;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,10 +24,12 @@ import java.util.Map;
 
 @Slf4j
 @Service("MelonService")
+@RequiredArgsConstructor
 public class MelonService implements IMelonService {
 
     @Resource(name = "MelonMapper")
     private IMelonMapper melonMapper; // MongoDB에 저장할 Mapper
+    private final IMelonCacheMapper iMelonCacheMapper;
 
 
     @Override
@@ -78,6 +83,9 @@ public class MelonService implements IMelonService {
         // MongoDB에 데이터저장하기
         res = melonMapper.insertSong(pList, colNm);
 
+        // RedisDB에 데이터 저장하기 (추가)
+        res = iMelonCacheMapper.insertSong(pList, colNm);
+
 
         // 로그 찍기(추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이하다.)
         log.info(this.getClass().getName() + ".collectMelonSong End!");
@@ -92,9 +100,14 @@ public class MelonService implements IMelonService {
 
         String colNm = "MELON_" + DateUtil.getDateTime("yyyyMMdd");
 
-        List<MelonDTO> rList = new LinkedList<>();
+        List<MelonDTO> rList =null;
 
-        rList = melonMapper.getSongList(colNm);
+
+        if (iMelonCacheMapper.getExistKey(colNm)) {
+            rList = iMelonCacheMapper.getSongList(colNm); //RedisDB에서 데이터 가져오기
+        } else {
+            rList = melonMapper.getSongList(colNm); //MongoDB에서 데이터 가져오기
+        }
 
         if (rList == null) {
             rList = new LinkedList<>();
